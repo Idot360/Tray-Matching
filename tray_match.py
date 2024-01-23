@@ -1,4 +1,6 @@
 # 
+# Should try to avoid floats
+# 
 import pandas as pd
 
 
@@ -6,9 +8,11 @@ import pandas as pd
 
 NAME_W = 0.8
 GENDER_W = 0.6
-SUBJECT_W = 0.3
+SUBJECT_W = 0.5
 FULL_W = 0.8
 PARTIAL_W = 0.4
+M_BREAKPOINT = 1
+H_BREAKPOINT = 2
 SUBJECT_SHORT = {"la": "Language Arts", "math": "Mathematics", "cl": "Chinese", "ml": "Malay", "mi": "Man & ideas", 
                  "bio": "Science", "biology": "Science", "phy": "Science", "physics": "Science", "chem": "Science", 
                  "chemistry": "Science", "com": "Computing"}
@@ -25,6 +29,8 @@ def compare(field: str, keywords: str, issubject: bool = False):
         Weight float; the numerical value of the weight given to the field
                       based on how much the keywords match the field
     """
+    if keywords == "":
+        return 0
     weight = float()
     partial_match = False
     #print(keywords, field)
@@ -64,8 +70,15 @@ def weight_assignment(name: str, gender: str, subject: str, given_name: str, giv
 
 # ???
 def main():
-    print("male" in "female")
-    # main: takes inputs from user
+    """
+    Accepts three input from the user for identification of the teacher:
+        Name
+        Gender
+        Subject taught / Department
+    # Assumes unknown if left blank
+    
+    Approximates to find the highest matching teacher stored in the database (not user-inputted)
+    """
     given_name = input("please input the name of the teacher: ")
     given_gender = input("please input the gender of the teacher: ")
     given_subject = input("please input the subject/department the teacher teaches: ")
@@ -86,7 +99,12 @@ Most likely location:
     column {sorted_data.Coordinates.iloc[0].split(',')[0]}  row {sorted_data.Coordinates.iloc[0].split(',')[1]}.
 Likely teachers and locations: \n{sorted_data.iloc[:5]}
 """)
+    
+            # NOTE: CHANGE THE CODE TO SHOW DEGREE OF CERTAINTY;
+            #       ONLY PROVIDE MOST LIKELY LOCATION IN CASE OF LARGE DIFFERENCE IN WEIGHT BETWEEN POSITION 1 AND 2
+            #       
+            # IDEA TO DO IF LITERALLY NOTHING BETTER TO DO: 1. MAKE INTO WEBSITE; 2. ADD IMAGES TO HELP USERS CONFIRM IF ACCURATE
 
-# ling hwee chong, chong hur ling marcus
+
 if __name__ == "__main__":
     main()
