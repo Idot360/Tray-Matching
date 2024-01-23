@@ -17,7 +17,7 @@ H_BREAKPOINT = 1.5
 DIFF_BREAKPOINT = 0.3
 SUBJECT_SHORT = {"la": "Language Arts", "math": "Mathematics", "cl": "Chinese", "ml": "Malay", "mi": "Man & ideas", 
                  "bio": "Science", "biology": "Science", "phy": "Science", "physics": "Science", "chem": "Science", 
-                 "chemistry": "Science", "com": "Computing", "english": "Language Arts"}
+                 "chemistry": "Science", "com": "Computing", "english": "Language Arts", "econs": "Economics"}
 GENDER_SHORT = {"m": "Male", "f": "Female"}
 
 
