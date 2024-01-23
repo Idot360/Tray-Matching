@@ -123,12 +123,6 @@ Most likely location:
     {sorted_data.Location.iloc[0]}
     column {sorted_data.Coordinates.iloc[0].split(',')[0]}  row {sorted_data.Coordinates.iloc[0].split(',')[1]}.
 """)
-    
-
-            # NOTE: CHANGE THE CODE TO SHOW DEGREE OF CERTAINTY;
-            #       ONLY PROVIDE MOST LIKELY LOCATION IN CASE OF LARGE DIFFERENCE IN WEIGHT BETWEEN POSITION 1 AND 2
-            #       
-            # IDEA TO DO IF LITERALLY NOTHING BETTER TO DO: 1. MAKE INTO WEBSITE; 2. ADD IMAGES TO HELP USERS CONFIRM IF ACCURATE
 
 
 if __name__ == "__main__":
