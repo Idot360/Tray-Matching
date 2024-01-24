@@ -8,13 +8,13 @@ import pandas as pd
 
 CSV_FILE = "Lettertray_Combined.csv"
 NAME_W = 0.8
-GENDER_W = 0.6
-SUBJECT_W = 0.5
+GENDER_W = 0.9
+SUBJECT_W = 0.7
 FULL_W = 0.8
 PARTIAL_W = 0.4
 M_BREAKPOINT = 0.8
 H_BREAKPOINT = 1.5
-DIFF_BREAKPOINT = 0.3
+DIFF_BREAKPOINT = 0.25
 SUBJECT_SHORT = {"la": "Language Arts", "math": "Mathematics", "cl": "Chinese", "ml": "Malay", "mi": "Man & ideas", 
                  "bio": "Science", "biology": "Science", "phy": "Science", "physics": "Science", "chem": "Science", 
                  "chemistry": "Science", "com": "Computing", "english": "Language Arts", "econs": "Economics"}
@@ -96,9 +96,9 @@ def main():
     sorted_data = (tray_database.sort_values(by="Weight", ascending=False))
 
     certainty = ""
-    if sorted_data.Weight[0] > H_BREAKPOINT:
+    if sorted_data.Weight.iloc[0] > H_BREAKPOINT:
         certainty = "high"
-    elif sorted_data.Weight[1] > M_BREAKPOINT:
+    elif sorted_data.Weight.iloc[1] > M_BREAKPOINT:
         certainty = "medium"
     else:
         certainty = "low"
@@ -113,7 +113,8 @@ def main():
     for i in range(5):
         if sorted_data.Weight.iloc[i] == 0:
             break
-        list_value += 1
+        if sorted_data.Weight.iloc[0] - sorted_data.Weight.iloc[i] < DIFF_BREAKPOINT:
+            list_value += 1
         
     print(f"""Likely teachers and locations, with a {certainty} degree of certainty:\n{sorted_data.iloc[:list_value]}""")
     
@@ -123,6 +124,8 @@ Most likely location:
     {sorted_data.Location.iloc[0]}
     column {sorted_data.Coordinates.iloc[0].split(',')[0]}  row {sorted_data.Coordinates.iloc[0].split(',')[1]}.
 """)
+    
+    input("Please press return to close")
 
 
 if __name__ == "__main__":
