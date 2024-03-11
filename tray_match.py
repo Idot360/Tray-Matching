@@ -103,7 +103,7 @@ def main():
     else:
         certainty = "low"
 
-    print(f"You searched for Mr/Ms/Mrs/Mdm/Dr {given_name}, of gender {given_gender}, who teaches the {given_subject} subject.")
+    print(f"\nYou searched for Mr/Ms/Mrs/Mdm/Dr {given_name}, of gender {given_gender}, who teaches the {given_subject} subject.\n")
     
     if sorted_data.Weight.iloc[0] == 0:
         print("No Results\n")
