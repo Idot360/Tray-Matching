@@ -22,11 +22,12 @@ GENDER_SHORT = {"m": "Male", "f": "Female"}
 
 
 # Comparision Function;
-def compare(field: str, keywords: str, issubject: bool = False):
+def compare(field: str, keywords: str, issubject: bool = False) -> float:
     """
     Parameters:
         field string; the field of the row to be compared
         keywords string; the part of the user input corresponding to the field
+        issubject bool; whether the field being compared belongs to subjects
     Output:
         Weight float; the numerical value of the weight given to the field
                       based on how much the keywords match the field
@@ -46,7 +47,7 @@ def compare(field: str, keywords: str, issubject: bool = False):
 # Sorting Criteria
 # Note: originally planned to write as a single input function
 #       to pass to sort, shortening the code
-def weight_assignment(name: str, gender: str, subject: str, given_name: str, given_gender: str, given_subject: str):
+def weight_assignment(name: str, gender: str, subject: str, given_name: str, given_gender: str, given_subject: str) -> float:
     """
     Parameters:
             name string; the name given in the specific row
@@ -110,7 +111,7 @@ def main():
         return
     
     list_value = 0
-    for i in range(5):
+    for i in range(8):
         if sorted_data.Weight.iloc[i] == 0:
             break
         if sorted_data.Weight.iloc[0] - sorted_data.Weight.iloc[i] < DIFF_BREAKPOINT:
