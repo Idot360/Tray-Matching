@@ -12,12 +12,13 @@ GENDER_W = 0.9
 SUBJECT_W = 0.7
 FULL_W = 0.8
 PARTIAL_W = 0.4
-M_BREAKPOINT = 0.8
-H_BREAKPOINT = 1.5
+M_BREAKPOINT = 1.2
+H_BREAKPOINT = 1.8
 DIFF_BREAKPOINT = 0.25
 SUBJECT_SHORT = {"la": "Language Arts", "math": "Mathematics", "cl": "Chinese", "ml": "Malay", "mi": "Man & ideas", 
                  "bio": "Science", "biology": "Science", "phy": "Science", "physics": "Science", "chem": "Science", 
-                 "chemistry": "Science", "com": "Computing", "english": "Language Arts", "econs": "Economics"}
+                 "chemistry": "Science", "com": "Computing", "english": "Language Arts", "econs": "Economics", 
+                 "gp": "General Paper"}
 GENDER_SHORT = {"m": "Male", "f": "Female"}
 
 
